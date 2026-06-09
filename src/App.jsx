@@ -104,7 +104,9 @@ export default function App() {
     ws['!cols'] = [25, 20, 13, 18, 16, 13, 15].map(w => ({ wch: w }))
     const wb = XLSX.utils.book_new()
     XLSX.utils.book_append_sheet(wb, ws, 'كفالات الأيتام')
-    XLSX.writeFile(wb, 'كفالات_الأيتام.xlsx')
+    const d = new Date()
+const today = `${d.getDate()}-${d.getMonth()+1}-${d.getFullYear()}`
+XLSX.writeFile(wb, `كفالات_الأيتام_${today}.xlsx`)
     showToast('✅ تم تصدير Excel بنجاح')
   }
 
